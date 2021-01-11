@@ -1,14 +1,12 @@
 import React, {Fragment} from 'react';
 import {
-        Image,
         ScrollView,
-        Dimensions,
-        StyleSheet,
-        FlatList
+        FlatList,       
 } from 'react-native';
-import Header from './src/components/header';
 
-const screen = Dimensions.get("screen").width;
+import { Header }from './src/components/header';
+import { Photograph } from './src/components/photograph';
+
 const information = [
   {id: 1,user:"Vinicius"},
   {id: 2,user:"Victor"},
@@ -18,25 +16,6 @@ const information = [
 const App = () => {
   return ( 
     <ScrollView>
-
-      {/* SEM JSX
-
-      ESCREVENDO APENAS COM JS
-
-      {information.map(photography => 
-      <Fragment>
-        <Text>{photography.user}</Text>
-        <Image
-        source={require ("./res/img/alura.jpg")}
-        style={screenStyle.image}
-      />
-      </Fragment>
-      )}
-      </ScrollView>
-    )
-  };
-*/}
-
    
       <FlatList
         data = {information}
@@ -45,22 +24,11 @@ const App = () => {
       
         <Fragment>
           <Header userName = {item.user}/>
-          <Image
-          source={require ("./res/img/alura.jpg")}
-          style={screenStyle.userPicture}
-          />
+          <Photograph/>
         </Fragment>
       }/>
       </ScrollView>
   )
 };
-
-const screenStyle = StyleSheet.create ({
-  userPicture:{
-  width:screen,
-  height:screen
-  }
-})
-
 
 export default App;
