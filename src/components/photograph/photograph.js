@@ -5,11 +5,11 @@ import {
 } from "react-native";
 
 import screenStyle from "./style.js";
-const Photograph =() =>{
+const Photograph =({urlPhotograph}) =>{
     return (
         <Fragment>
             <Image 
-            source = {require ("../../../res/img/alura.jpg")}
+            source = {{urlPhotograph}}
             style = {screenStyle.userPicture}
             />    
             <Text>Descrição da foto</Text>

@@ -2,8 +2,8 @@ import {StyleSheet} from "react-native"
 
 const screenStyle = StyleSheet.create ({
     userPicture:{
-    width:40,
-    height:40,
+    width:45,
+    height:45,
     borderRadius:30,
     margin:10
     },
