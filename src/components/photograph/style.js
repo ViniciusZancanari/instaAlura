@@ -8,6 +8,11 @@ const screenStyle = StyleSheet.create ({
     userPicture:{
     width:screen,
     height:screen
+    },
+    like:{
+      height:20,
+      width:20,
+      margin:5
     }
   })
 
