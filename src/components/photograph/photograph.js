@@ -2,16 +2,26 @@ import React, {Fragment, useState} from 'react';
 import {
     Image,
     Text,
-    TouchableOpacity
+    TouchableOpacity,
+    View
 } from "react-native";
 
 import screenStyle from "./style.js";
 
-const Photograph =({urlPhotograph,description}) =>{
+const Photograph =({urlPhotograph,description,numberLikes}) =>{
 
     const [liked, setLiked] = useState(false);
+    const [likes,setLikes] = useState(numberLikes);
 
     const likePhotograph = () => {
+        let numberOfLike = likes;
+        if(liked){
+            numberOfLike --;
+        }
+        else{
+            numberOfLike ++;
+        }
+        setLikes(numberOfLike);
         setLiked(!liked);
     }
     return (
@@ -21,12 +31,15 @@ const Photograph =({urlPhotograph,description}) =>{
             style = {screenStyle.userPicture}
             />    
             <Text>{description}</Text>
-            <TouchableOpacity onPress = {likePhotograph}>
-                <Image 
-                source = {getLikeImage(liked)}
-                style = {screenStyle.like}
-                />
-            </TouchableOpacity>
+            <View style = {screenStyle.viewLike}>
+                <TouchableOpacity onPress = {likePhotograph}>
+                    <Image 
+                        source = {getLikeImage(liked)}
+                        style = {screenStyle.like}
+                    />
+                </TouchableOpacity>
+                <Text>{likes}</Text>
+            </View>
         </Fragment>
     )
 }

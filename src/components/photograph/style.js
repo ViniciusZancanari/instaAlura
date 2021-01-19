@@ -13,6 +13,10 @@ const screenStyle = StyleSheet.create ({
       height:20,
       width:20,
       margin:5
+    },
+    viewLike:{
+      flexDirection:'row',
+      alignItems:'center',
     }
   })
 

@@ -34,6 +34,8 @@ const App = () => {
           <Photograph 
           urlPhotograph = {item.url}
           description = {item.description}
+          numberLikes = {item.likes}
+
           />          
         </Fragment>
         }
