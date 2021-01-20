@@ -6,24 +6,22 @@ import {
     View
 } from "react-native";
 
-import screenStyle from "./style.js";
+import { getLikeImage, likePhotograph} from '../../api/likes';
+
+import screenStyle from "./style";
 
 const Photograph =({urlPhotograph,description,numberLikes}) =>{
 
     const [liked, setLiked] = useState(false);
     const [likes,setLikes] = useState(numberLikes);
 
-    const likePhotograph = () => {
-        let numberOfLike = likes;
-        if(liked){
-            numberOfLike --;
-        }
-        else{
-            numberOfLike ++;
-        }
-        setLikes(numberOfLike);
-        setLiked(!liked);
+    const clickLike = () =>{
+        const [newStateLike, numberOfLike] = likePhotograph(liked,likes)
+        setLikes(numberOfLike)
+        setLiked(newStateLike)
     }
+
+    
     return (
         <Fragment>
             <Image 
@@ -32,26 +30,16 @@ const Photograph =({urlPhotograph,description,numberLikes}) =>{
             />    
             <Text>{description}</Text>
             <View style = {screenStyle.viewLike}>
-                <TouchableOpacity onPress = {likePhotograph}>
+                <TouchableOpacity onPress = {clickLike}>
                     <Image 
                         source = {getLikeImage(liked)}
                         style = {screenStyle.like}
                     />
                 </TouchableOpacity>
                 <Text>{likes}</Text>
+    
             </View>
         </Fragment>
     )
 }
-
-const getLikeImage = (liked) =>{
-    if (liked > 0){
-        return require('../../../res/img/s2-checked.png')
-    }
-    else{
-        return require('../../../res/img/s2.png')
-    }
-
-}
-
 export default Photograph;
