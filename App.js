@@ -6,6 +6,7 @@ import {
 
 import { Header }from './src/components/header';
 import { Photograph } from './src/components/photograph';
+import { Comments } from './src/components/comments'
 import  readPhotographs from './src/api/feed';
 
 const App = () => {
@@ -35,8 +36,8 @@ const App = () => {
           urlPhotograph = {item.url}
           description = {item.description}
           numberLikes = {item.likes}
-
           />          
+          <Comments comments =  {item.comentarios}/>
         </Fragment>
         }
         />

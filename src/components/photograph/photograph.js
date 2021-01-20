@@ -37,7 +37,6 @@ const Photograph =({urlPhotograph,description,numberLikes}) =>{
                     />
                 </TouchableOpacity>
                 <Text>{likes}</Text>
-    
             </View>
         </Fragment>
     )
